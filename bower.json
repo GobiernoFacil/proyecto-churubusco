@@ -1,0 +1,26 @@
+{
+  "name": "tp-game",
+  "authors": [
+    "el coruco <el.coruco@gmail.com>"
+  ],
+  "description": "el juego del presupuesto",
+  "main": "main.js",
+  "keywords": [
+    "juego",
+    "transparencia"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "^4.2.2",
+    "backbone": "^1.3.3",
+    "jquery": "^3.1.0"
+  }
+}
