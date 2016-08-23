@@ -4,6 +4,97 @@ var GFGameSHCP = {
   // [ SET INITIAL VALUES ]
   //
   //
+  characters : [
+    {
+      personaje : "administrador",
+      clave : 1,
+      texto : "Trabajas en Hacienda",
+      ramos : ["6", "32"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "ambientalista",
+      clave : 2,
+      texto : "vives en un árbol",
+      ramos : ["31", "8", "16"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "educador",
+      clave : 3,
+      texto : "la letra con sangre entra",
+      ramos : ["11", "42"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "emprendedor",
+      clave : 4,
+      texto : "Hipster",
+      ramos : ["10", "5", "21", "14", "41"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "humanista",
+      clave : 5,
+      texto : "chairo",
+      ramos : ["20", "15", "35", "47"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "Institucionalista",
+      clave : 6,
+      texto : "Se ve que sí pasaste por la universidad",
+      ramos : ["22", "1", "40", "2", "27", "44", "37"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "inversionista",
+      clave : 7,
+      texto : "Estás cabrón",
+      ramos : ["52", "53", "9", "18", "45", "46"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "justiciero / héroe",
+      clave : 8,
+      texto : "abuelita de batman",
+      ramos : ["7", "4", "3", "13", "17"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "saludable",
+      clave : 9,
+      texto : "just do it",
+      ramos : ["50", "51", "12"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "tecnológico",
+      clave : 10,
+      texto : "nerd",
+      ramos : ["38", "42"],
+      modificable : 1,
+      limites : [0, 4000000000000]
+    },
+    {
+      personaje : "HAcker",
+      clave : 13,
+      texto : "Eres la mera avena",
+      ramos : ["28", "24", "52", "34", "30", "53", "33", "19", "23", "25"],
+      modificable : 0,
+      limites : [null, null]
+    },
+
+  ],
   branchContainer : "GF-game-ramos",
   data      : null,
   pef_total : 0,
@@ -68,6 +159,7 @@ var GFGameSHCP = {
       this.branches.push({
         nombre  : br, // el nombre del ramo
         el      : el, // el <li>
+        ramo    : d[0].ramo,
         data    : d,  // los pp del ramo
         total   : t,  // el dinero total del ramo
         current : 0,  // dinero del pdf disponible
@@ -184,15 +276,6 @@ var GFGameSHCP = {
     var container = document.querySelector(".GF-game-textarea-dev");
     console.log(container);
     container.value= csv;
-    /*
-     nombre  : br, // el nombre del ramo
-        el      : el, // el <li>
-        data    : d,  // los pp del ramo
-        total   : t,  // el dinero total del ramo
-        current : 0,  // dinero del pdf disponible
-        change  : false, // indica si la cantidad ha sido modificada
-        rules   : [null, null] // las reglas de cada ramo
-    */
   }
 };
 
