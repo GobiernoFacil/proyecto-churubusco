@@ -99,9 +99,9 @@ var GFGameSHCP = {
   data      : null,
   pef_total : 0,
   branches  : null,
-  branchTemplate : _.template("<p><%=ramo%>:$<%=actual%></p>" +
+  branchTemplate : _.template("<p><%=ramo%>:<%=actual%></p>" +
                               "<p><input disabled></p>" +
-                              "<p>$<%=pef%></p>" +
+                              "<p><%=pef%></p>" +
                               "<p><a class='gf-minus-btn' href='#'>[ - ]</a>" +
                               " <a class='gf-pef-btn' href='#'>[ pef ]</a>" +
                               " <a class='gf-plus-btn' href='#'>[ + ]</a></p>" +
@@ -121,7 +121,7 @@ var GFGameSHCP = {
   //
   getData  : function(){
     var that = this;
-    d3.csv("ramos_programas.csv", function(err, data){
+    d3.csv("ramos_programas_2016_v2.csv", function(err, data){
       that.setData(data);
       that.render();
     });
@@ -140,7 +140,7 @@ var GFGameSHCP = {
     });
     this.branches  = [];
     this._branches = _.uniq(_.pluck(data, "nombre"));
-    this._branches.splice(0, 40);
+    //this._branches.splice(0, 40);
 
     this._branches.forEach(function(br){
       var d = data.filter(function(item){
@@ -151,6 +151,7 @@ var GFGameSHCP = {
       }).reduce(function(sum, val){
         return sum+val;
       });
+
       var el = this.makeRamoLI({
         nombre : br,
         pef    : t
@@ -167,6 +168,10 @@ var GFGameSHCP = {
         rules   : [null, null] // las reglas de cada ramo
       });
     }, this);
+
+    var points = _.min(_.pluck(this.branches, "total"));
+    console.log(points);
+    
   },
 
   //
@@ -221,17 +226,18 @@ var GFGameSHCP = {
     // ENABLE EXPORT BTN
     document.querySelector(".GF-game-get-results").addEventListener("click", function(e){
       e.preventDefault();
-      console.log(that.branches);
       var d = that.branches.filter(function(b){
         return b.change;
       });
       that.exportData(d);
     });
 
-    // ENABLE BRANCH INTERACTION 
+    // RENDER BRANCH AND ENABLE INTERACTION 
     this.branches.forEach(function(b){
-      var monitor = b.el.getElementsByTagName("input")[0];
+      // append data
       document.getElementById(this.branchContainer).appendChild(b.el);
+      // fetch output 
+      var monitor = b.el.getElementsByTagName("input")[0];
       
       b.el.querySelector(".gf-pef-btn").addEventListener("click", function(e){
         e.preventDefault();

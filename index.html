@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Demo interacción</title>
+  <meta charset="utf-8">
+  <title>El div del juego</title>
 </head>
 <body>
 
-<form id="GF-game-form-container">
-  <ul id="GF-game-ramos">
+<!-- el div que contiene el juego, y que debe
+     copiarse al editor de Hacienda -->
+<div class="gf-game-container-main">
+  <form id="GF-game-form-container">
+    <ul id="GF-game-ramos"></ul>
+  </form>
+</div>
 
-  </ul>
-</form>
-
-<p><a class="GF-game-get-results" href="#">obtén resultados</a></p>
-<p><textarea class="GF-game-textarea-dev"></textarea></p>
-<script src="d3.js"></script>
-<script src="underscore.js"></script>
-<script src="backbone.js"></script>
-<script src="main.js"></script>
+<!-- El Js que se debe usar para que el juego funcione -->
+<script src="gf-budget-game-v1.1.js"></script>
 </body>
 </html>
