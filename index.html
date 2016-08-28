@@ -9,9 +9,36 @@
 <!-- el div que contiene el juego, y que debe
      copiarse al editor de Hacienda -->
 <div class="gf-game-container-main">
-  <form id="GF-game-form-container">
-    <ul id="GF-game-ramos"></ul>
-  </form>
+
+  <!-- Esta es la primera sección, la del intro.
+       Las demás secciones tienen el estilo inline, 
+       porque no se sabe si el código JSo  el css carga antes
+       que el html; mejor así, para que no se vea feíto. -->
+  <div class="gf-game-section gf-game-section-intro">
+    <p>
+      <a href="#" class="gf-game-next">Crea tu presupuesto</a>
+    </p> 
+  </div>
+
+  <!-- esta es la segunda parte del intro -->
+  <div class="gf-game-section gf-game-section-intro-b" style="display:none">
+    <p>
+      <a class="gf-game-next" href="#">Reparte el presupuesto</a>
+    </p>
+  </div>
+
+  <!-- aquí seleccionas un ramo -->
+  <div class="gf-game-section gf-game-section-branch-selector"  style="display:none">
+    <ul id="gf-game-ramos"></ul> 
+  </div>
+
+  <!-- aquí asignas la lana por ramo -->
+  <div class="gf-game-section gf-game-section-branch-money"  style="display:none">
+  </div>
+
+  <!-- aquí asignas la lana por programa -->
+  <div class="gf-game-section gf-game-section-program-money"  style="display:none">
+  </div>
 </div>
 
 <!-- El Js que se debe usar para que el juego funcione -->

@@ -1,15 +1,31 @@
-(function(win, doc){
+(function(win, doc, htmlClassCollection){
   var characters, data, app, branchTemplate,
-  programTemplate, Template, AppName = "GFGameSHCPV2";
+  programTemplate, Template, currentSection, 
+  AppName = "GFGameSHCPV2";
 
+  /*
+  ,{
+  divIntro          : "gf-game-section-intro",
+  divIntroB         : "gf-game-section-intro-b",
+  divBranchSelector : "gf-game-section-branch-selector",
+  divBranchMoney    : "gf-game-section-branch-money",
+  divProgramMoney   : "gf-game-section-program-money",
+  aCloseBtn         : "gf-game-next"
+})
+  */
   app = {
-    testTemplate : function(){
-      console.log(Template(branchTemplate, {
-        ramo : 31,
-        actual:1000,
-        pef : 2000
-      }));
+    //
+    // Initialize function
+    //
+    //
+    initialize : function(){
+      currentSection = 0;
     }
+
+    //
+    // N A V I G A T I O N   F U N C T I O N S
+    // --------------------------------------------------------
+    //
   };
 
   window[AppName] = app;
@@ -5874,4 +5890,11 @@
     " \"pp\"": "1"
   }
   ];
-})(window, document);
+})(window, document,{
+  divIntro          : "gf-game-section-intro",
+  divIntroB         : "gf-game-section-intro-b",
+  divBranchSelector : "gf-game-section-branch-selector",
+  divBranchMoney    : "gf-game-section-branch-money",
+  divProgramMoney   : "gf-game-section-program-money",
+  aCloseBtn         : "gf-game-next"
+});
