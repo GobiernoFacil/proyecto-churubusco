@@ -1,7 +1,7 @@
 (function(win, doc, htmlClassCollection){
   var characters, data, app, branchTemplate,
   programTemplate, Template, currentSection, 
-  AppName = "GFGameSHCPV2";
+  DIVS = {}, AppName = "GFGameSHCPV2";
 
   /*
   ,{
@@ -20,12 +20,53 @@
     //
     initialize : function(){
       currentSection = 0;
-    }
+      this.setDIVS();
+    },
 
     //
     // N A V I G A T I O N   F U N C T I O N S
     // --------------------------------------------------------
     //
+
+    //
+    // cache the html sections
+    //
+    //
+    setDIVS : function(){
+      DIVS.intro     = doc.getElementsByClassName(htmlClassCollection.divIntro)[0];
+      DIVS.introb    = doc.getElementsByClassName(htmlClassCollection.divIntroB)[0];
+      DIVS.branches  = doc.getElementsByClassName(htmlClassCollection.divBranchSelector)[0];
+      DIVS.setBMoney = doc.getElementsByClassName(htmlClassCollection.divBranchMoney)[0];
+      DIVS.setPMoney = doc.getElementsByClassName(htmlClassCollection.divProgramMoney)[0];
+    },
+
+    setNavButtons : function(){
+
+    },
+
+    renderIntro : function(){
+      DIVS.introb.style.display    = "none";
+      DIVS.branches.style.display  = "none";
+      DIVS.setBMoney.style.display = "none";
+      DIVS.setPMoney.style.display = "none";
+      DIVS.intro.style.display     = "block";
+    },
+
+    renderIntroB : function(){
+
+    },
+
+    renderBranchSelector : function(){
+
+    },
+
+    renderBranchMoney : function(branch){
+
+    },
+
+    renderProgramMoney : function(branch, program){
+
+    },
   };
 
   window[AppName] = app;
